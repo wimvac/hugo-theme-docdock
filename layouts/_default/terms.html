@@ -1,0 +1,17 @@
+{{ define "main" }}
+<main>
+  <div>
+   <div>These are the results of <code>terms.html</code>.</div>
+   <ul class="terms">
+     {{ range $key, $value := .Data.Terms }}
+     <li>
+       <a href="{{ (print "/" $.Data.Plural "/" $key | urlize) | relURL }}">
+         {{ $key }}
+       </a>
+       ({{ len $value }})
+     </li>
+     {{ end }}
+   </ul>
+  </div>
+</main>
+{{ end }}
