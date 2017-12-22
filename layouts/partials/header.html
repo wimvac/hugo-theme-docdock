@@ -4,12 +4,16 @@
 	{{else}}
   {{ if .Site.GetPage "page" "_header.md" }}
     {{(.Site.GetPage "page" "_header.md").Content}}
-  {{else}}
-    <span style="font-size:smaller">
-    <a id="logo" href="{{.Site.BaseURL}}">
-    <span class="fa fa-gears" style="font-size:large"></span>
-    </a>
-    {{ T "create-header-md" }}
-    </span>
+  {{ else }}
+    {{ if .Site.GetPage "page" "_header.adoc" }}
+      {{(.Site.GetPage "page" "_header.adoc").Content}}
+    {{ else }}
+      <span style="font-size:smaller">
+      <a id="logo" href="{{.Site.BaseURL}}">
+      <span class="fa fa-gears" style="font-size:large"></span>
+      </a>
+      {{ T "create-header-md" }}
+      </span>
+    {{end}}
   {{end}}
 {{end}}
